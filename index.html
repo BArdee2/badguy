@@ -218,7 +218,85 @@ nav ul li a:hover::after {
   z-index: 2;
 }
 
-/* ===== Featured Products ===== */
+/* Featured Products Section */
+.featured-products {
+  padding: 50px 0;
+  text-align: center;
+ 
+}
+
+.featured-products h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: transparent; /* Remove background */
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+ 
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  
+}
+
+.product-card img {
+  max-width: 50%;
+  border-radius: 10px;
+  height: 50%;
+}
+
+/* New Arrivals Section */
+.new-arrivals {
+  padding: 50px 0;
+  text-align: center;
+  background: transparent; /* Remove background */
+}
+
+.new-arrivals h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.new-arrivals .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.new-arrivals .product-card {
+  background: transparent; /* Remove background */
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.new-arrivals .product-card:hover {
+  transform: translateY(-10px);
+}
+
+.new-arrivals .product-card img {
+  max-width: 50%;
+  border-radius: 10px;
+  height: 50%;
+}
+
+
+    /* Product Card Styling */
+  /* Product Card Styling */
+/* Featured Products Section */
 .featured-products {
   padding: 50px 0;
   text-align: center;
@@ -229,72 +307,188 @@ nav ul li a:hover::after {
   margin-bottom: 30px;
 }
 
-.product-grid {
-  display: grid;
-  object-fit: cover;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
 .product-card {
-  background: var(--text-light);
-  padding: 20px;
-  border-radius: 15px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-bottom: 10px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: var(--transition);
+  transition: transform 0.2s ease-in-out;
+  padding-top: 10px;
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Blue Outline Animation */
+.product-card::before,
+.product-card::after,
+.product-card .left-line,
+.product-card .right-line {
+  content: "";
+  position: absolute;
+  background: blue;
+}
+
+.product-card::before {
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  transition: width 0.3s linear;
+}
+
+.product-card::after {
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 3px;
+  transition: width 0.3s linear 0.3s;
+}
+
+.product-card:hover::before,
+.product-card:hover::after {
+  width: 100%;
+}
+
+.left-line, .right-line {
+  width: 3px;
+  height: 0%;
+  transition: height 0.3s linear 0.6s;
+}
+
+.left-line {
+  top: 0;
+  left: 0;
+}
+
+.right-line {
+  bottom: 0;
+  right: 0;
+}
+
+.product-card:hover .left-line,
+.product-card:hover .right-line {
+  height: 100%;
+}
+
+/* Image Container */
+.image-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-card img {
-  max-width: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   border-radius: 10px;
-  height: 50%;
 }
 
-
-.container .h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; /* Stack items vertically */
+/* Add to Cart Button */
+.cart-btn {
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 12px;
   text-align: center;
-}
-
-.product-card h3 {
-  font-size: 24px;
-  margin: 10px 0;
-}
-
-.product-card p {
-  font-size: 18px;
-  color: var(--secondary);
-}
-
-.product-card .btn {
-  background: var(--primary);
-  color: var(--text-light);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
-  transition: var(--transition);
+  border: none;
+  font-size: 16px;
+  transition: opacity 0.4s ease-in-out;
+  height: 45px;
+  position: relative;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Ensure it doesn't take up space */
+  margin-top: 10px; /* Add some spacing below the image */
+  display: block; /* Ensure the anchor tag behaves like a block element */
+  text-decoration: none; /* Remove underline */
 }
 
-.product-card .btn:hover {
-  background: var(--accent);
+/* Show Button on Hover */
+.product-card:hover .cart-btn {
+  opacity: 1; /* Visible on hover */
+  visibility: visible; /* Ensure it takes up space */
 }
 
-
-.new-arrivals{
-  text-align: center;
-  padding: 50px 0;
+/* Cart Icon Image */
+.cart-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
+
+/* Hover Effect */
+.cart-btn:hover .cart-icon {
+  opacity: 1;
+}
+
+/* Add to Cart Text */
+.cart-text {
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cart-btn:hover .cart-text {
+  opacity: 0;
+}
+
+/* Wishlist Button */
+.hover-buttons {
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease-in-out;
+}
+
+.product-card:hover .hover-buttons {
+  right: 10px;
+}
+
+.hover-buttons button {
+  border: none;
+  padding: 8px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Canceled Price */
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  position: relative;
+}
+
+.canceled-price {
+  color: grey;
+  text-decoration: line-through;
+  position: relative;
+  transform: translateX(10px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.product-card:hover .canceled-price {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 
 /* ===== Testimonials ===== */
 .testimonials {
@@ -403,24 +597,6 @@ footer {
 .social-media a:hover {
   color: var(--accent);
 }
-
-/* ===== Animations ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-section {
-  animation: fadeIn 0.6s ease-out;
-}
-
 
 
 /* Blog Section */
@@ -767,33 +943,144 @@ footer p {
   </section>
   
 
-  <!-- Featured Products -->
-  <section class="featured-products">
-    <div class="container">
-      <h2>Featured Products</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="img/The Top 20 Sexy Men's Colognes (How To Smell Incredible In 2025).jpg" alt="Perfume 1">
-          <h3>Eau de Parfum</h3>
-          <p>₦99.99</p>
-          <button class="btn">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="img/Wildfox Eau de Parfum _ Nordstrom.jpg" alt="Perfume 2">
-          <h3>Floral Essence</h3>
-          <p>₦89.99</p>
-          <button class="btn">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="img/12 Expensive Perfumes That Are Totally Worth the Splurge.jpg" alt="Perfume 3">
-          <h3>Woody Musk</h3>
-          <p>₦109.99</p>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Featured Products Section -->
+<section class="featured-products">
+  <div class="container">
+      <h2 class="text-center">Featured Products</h2> <!-- Centered text -->
+      <div class="row justify-content-center">
+          <!-- Product Card 1 -->
+          <div class="col-md-3">
+              <div class="product-card">
+                  <div class="left-line"></div>
+                  <div class="right-line"></div>
+                  
+                  <div class="image-container">
+                      <img src="img/Wildfox Eau de Parfum _ Nordstrom.jpg" alt="Product Image">
+                  </div>
 
+                  <!-- Replace button with anchor tag -->
+                  <a href="" class="cart-btn">
+                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
+                      <span class="cart-text">Add to Cart</span>
+                  </a>
+
+                  <div class="hover-buttons">
+                      <button class="wishlist-btn">❤️</button>
+                  </div>
+
+                  <div class="product-info">
+                      <h5>Apple Watch SE (2nd Gen)</h5>
+                      <p>
+                          <span class="price-container">
+                              <span class="canceled-price">$243.79</span>  
+                              <strong>$233.79</strong>
+                          </span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="col-md-3">
+              <div class="product-card">
+                  <div class="left-line"></div>
+                  <div class="right-line"></div>
+                  
+                  <div class="image-container">
+                      <img src="img/The Top 20 Sexy Men's Colognes (How To Smell Incredible In 2025).jpg" alt="Product Image">
+                  </div>
+
+                  <!-- Replace button with anchor tag -->
+                  <a href="" class="cart-btn">
+                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
+                      <span class="cart-text">Add to Cart</span>
+                  </a>
+
+                  <div class="hover-buttons">
+                      <button class="wishlist-btn">❤️</button>
+                  </div>
+
+                  <div class="product-info">
+                      <h5>Eau de Parfum</h5>
+                      <p>
+                          <span class="price-container">
+                              <span class="canceled-price">$99.99</span>  
+                              <strong>$89.99</strong>
+                          </span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="col-md-3">
+              <div class="product-card">
+                  <div class="left-line"></div>
+                  <div class="right-line"></div>
+                  
+                  <div class="image-container">
+                      <img src="img/12 Expensive Perfumes That Are Totally Worth the Splurge.jpg" alt="Product Image">
+                  </div>
+
+                  <!-- Replace button with anchor tag -->
+                  <a href="" class="cart-btn">
+                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
+                      <span class="cart-text">Add to Cart</span>
+                  </a>
+
+                  <div class="hover-buttons">
+                      <button class="wishlist-btn">❤️</button>
+                  </div>
+
+                  <div class="product-info">
+                      <h5>Floral Essence</h5>
+                      <p>
+                          <span class="price-container">
+                              <span class="canceled-price">$109.99</span>  
+                              <strong>$99.99</strong>
+                          </span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Product Card 4 -->
+          <div class="col-md-3">
+              <div class="product-card">
+                  <div class="left-line"></div>
+                  <div class="right-line"></div>
+                  
+                  <div class="image-container">
+                      <img src="img/⚜️DOLCE & GABBANA (THE ONE)-- The One by Dolce….jpg" alt="Product Image">
+                  </div>
+
+                  <!-- Replace button with anchor tag -->
+                  <a href="" class="cart-btn">
+                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
+                      <span class="cart-text">Add to Cart</span>
+                  </a>
+
+                  <div class="hover-buttons">
+                      <button class="wishlist-btn">❤️</button>
+                  </div>
+
+                  <div class="product-info">
+                      <h5>Woody Musk</h5>
+                      <p>
+                          <span class="price-container">
+                              <span class="canceled-price">$119.99</span>  
+                              <strong>$109.99</strong>
+                          </span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<br>
+<br>
   <!-- New Arrivals Section -->
   <section class="new-arrivals">
     <div class="container">
