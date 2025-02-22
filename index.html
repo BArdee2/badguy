@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -87,34 +87,49 @@ nav ul li a:hover::after {
 }
 
 /* ===== Hero Banner ===== */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--text-light);
-  overflow: hidden;
+body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2A2A2A;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      filter: brightness(60%); /* Adjust percentage as needed */
+    }
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+   
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  animation: fadeIn 1s ease-in-out;
+  color: #ffffff;  /* Bright white text */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* Glow effect */
 }
 
-/* Video Styling */
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: -1; /* Push behind text */
-}
-
-/* Ensure text remains visible */
-.hero h1, .hero p, .hero .btn {
-  position: relative;
-  z-index: 1;
+.hero p {
+  font-size: 18px;
+  margin: 10px 0 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  color: #ffffff;  /* Bright white text */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* Glow effect */
 }
 
 .hero .btn {
@@ -135,34 +150,7 @@ nav ul li a:hover::after {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
-
-.benefits {
-    background-color: #5A54CC; /* Background Color */
-    color: white;
-    padding: 40px 0; /* Reduce height */
-    display: flex;
-    width: 90%;
-    justify-self: center;
-    font-size: 14px;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px; /* Less space */
-}
-
-.benefit {
-    padding: 5px 0;
-}
-
-.benefit-icon {
-    width: 45px; /* Reduce icon size */
-    height: 45px;
-}
-
-
-
-
-        
+    
 /* ===== Product Categories ===== */
 .categories {
   padding: 50px 0;
@@ -218,37 +206,34 @@ nav ul li a:hover::after {
   z-index: 2;
 }
 
-/* Featured Products Section */
+/* ===== Featured Products ===== */
 .featured-products {
   padding: 50px 0;
   text-align: center;
- 
 }
 
 .featured-products h2 {
   font-size: 36px;
   margin-bottom: 30px;
-
 }
 
 .product-grid {
   display: grid;
+  object-fit: cover;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 .product-card {
-  background: transparent; /* Remove background */
   padding: 20px;
   border-radius: 15px;
   text-align: center;
- 
   transition: var(--transition);
 }
 
 .product-card:hover {
   transform: translateY(-10px);
-  
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
@@ -257,238 +242,45 @@ nav ul li a:hover::after {
   height: 50%;
 }
 
-/* New Arrivals Section */
-.new-arrivals {
-  padding: 50px 0;
+
+.container .h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack items vertically */
   text-align: center;
-  background: transparent; /* Remove background */
 }
 
-.new-arrivals h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
+.product-card h3 {
+  font-size: 24px;
+  margin: 10px 0;
 }
 
-.new-arrivals .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+.product-card p {
+  font-size: 18px;
+  color: var(--secondary);
 }
 
-.new-arrivals .product-card {
-  background: transparent; /* Remove background */
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
+.product-card .btn {
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
   transition: var(--transition);
 }
 
-.new-arrivals .product-card:hover {
-  transform: translateY(-10px);
-}
-
-.new-arrivals .product-card img {
-  max-width: 50%;
-  border-radius: 10px;
-  height: 50%;
+.product-card .btn:hover {
+  background: var(--accent);
 }
 
 
-    /* Product Card Styling */
-  /* Product Card Styling */
-/* Featured Products Section */
-.featured-products {
+.new-arrivals{
+  text-align: center;
   padding: 50px 0;
-  text-align: center;
 }
-
-.featured-products h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
-}
-
-.product-card {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  padding-bottom: 10px;
-  text-align: center;
-  transition: transform 0.2s ease-in-out;
-  padding-top: 10px;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-/* Blue Outline Animation */
-.product-card::before,
-.product-card::after,
-.product-card .left-line,
-.product-card .right-line {
-  content: "";
-  position: absolute;
-  background: blue;
-}
-
-.product-card::before {
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  transition: width 0.3s linear;
-}
-
-.product-card::after {
-  bottom: 0;
-  right: 0;
-  width: 0%;
-  height: 3px;
-  transition: width 0.3s linear 0.3s;
-}
-
-.product-card:hover::before,
-.product-card:hover::after {
-  width: 100%;
-}
-
-.left-line, .right-line {
-  width: 3px;
-  height: 0%;
-  transition: height 0.3s linear 0.6s;
-}
-
-.left-line {
-  top: 0;
-  left: 0;
-}
-
-.right-line {
-  bottom: 0;
-  right: 0;
-}
-
-.product-card:hover .left-line,
-.product-card:hover .right-line {
-  height: 100%;
-}
-
-/* Image Container */
-.image-container {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-/* Add to Cart Button */
-.cart-btn {
-  width: 100%;
-  background: black;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  font-size: 16px;
-  transition: opacity 0.4s ease-in-out;
-  height: 45px;
-  position: relative;
-  opacity: 0; /* Hidden by default */
-  visibility: hidden; /* Ensure it doesn't take up space */
-  margin-top: 10px; /* Add some spacing below the image */
-  display: block; /* Ensure the anchor tag behaves like a block element */
-  text-decoration: none; /* Remove underline */
-}
-
-/* Show Button on Hover */
-.product-card:hover .cart-btn {
-  opacity: 1; /* Visible on hover */
-  visibility: visible; /* Ensure it takes up space */
-}
-
-/* Cart Icon Image */
-.cart-icon {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-
-/* Hover Effect */
-.cart-btn:hover .cart-icon {
-  opacity: 1;
-}
-
-/* Add to Cart Text */
-.cart-text {
-  position: relative;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.cart-btn:hover .cart-text {
-  opacity: 0;
-}
-
-/* Wishlist Button */
-.hover-buttons {
-  position: absolute;
-  top: 50%;
-  right: -50px;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.3s ease-in-out;
-}
-
-.product-card:hover .hover-buttons {
-  right: 10px;
-}
-
-.hover-buttons button {
-  border: none;
-  padding: 8px;
-  background: white;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Canceled Price */
-.price-container {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-  position: relative;
-}
-
-.canceled-price {
-  color: grey;
-  text-decoration: line-through;
-  position: relative;
-  transform: translateX(10px);
-  opacity: 0;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-.product-card:hover .canceled-price {
-  transform: translateX(0);
-  opacity: 1;
-}
-
 
 /* ===== Testimonials ===== */
 .testimonials {
@@ -521,6 +313,13 @@ nav ul li a:hover::after {
   color: var(--secondary);
 }
 
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
 /* ===== Newsletter ===== */
 .newsletter {
   padding: 50px 0;
@@ -598,7 +397,6 @@ footer {
   color: var(--accent);
 }
 
-
 /* Blog Section */
 .blog {
   padding: 50px 0;
@@ -646,69 +444,6 @@ footer {
   border-radius: 5px;
   display: inline-block;
   margin-top: 10px;
-}
-
-/* Live Chat */
-.live-chat {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-#chat-button {
-  background: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#chat-window {
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: none;
-}
-
-.chat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: #f9f9f9;
-  border-bottom: 1px solid #ccc;
-}
-
-.chat-body {
-  padding: 10px;
-  height: 200px;
-  overflow-y: auto;
-}
-
-.chat-input {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-}
-
-.chat-input input {
-  flex-grow: 1;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.chat-input button {
-  background: #333;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-left: 10px;
-  cursor: pointer;
 }
 
 /* FAQ Section */
@@ -845,7 +580,7 @@ footer p {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Men</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Women</a></li>
@@ -855,71 +590,20 @@ footer p {
             </div>
         </div>
     </nav>
-</body>
-</html>
+
+    <section class="hero">
+      <video autoplay muted loop>
+        <source src="img/84122b5a7e60e6a554134b755b3e77c0.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="content">
+        <h1>Luxury Perfumes for Every Occasion</h1>
+        <p>Explore our exclusive collection of premium fragrances.</p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+    </section>
 
   </header>
-
-  <section class="hero">
-    <video autoplay loop muted playsinline class="hero-video">
-      <source src="img/84122b5a7e60e6a554134b755b3e77c0.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="container">
-      <h1>Luxury Perfumes for Every Occasion</h1>
-      <p>Explore our exclusive collection of premium fragrances.</p>
-      <a href="#" class="btn">Shop Now</a>
-    </div>
-  </section>
-<br>
-<br>
-
-
-<!-- Benefits Section -->
-<section class="benefits d-flex align-items-center">
-  <div class="container">
-    <div class="row justify-content-center text-center text-md-start align-items-center py-3">
-      
-      <!-- Free Shipping -->
-      <div class="col-12 col-md-3 d-flex align-items-center gap-2 benefit flex-column flex-md-row">
-        <img src="img/2.webp" alt="Free Shipping" class="benefit-icon">
-        <div>
-          <h5>Free Shipping</h5>
-          <p class="m-0">On all orders over $75</p>
-        </div>
-      </div>
-
-      <!-- Free Returns -->
-      <div class="col-12 col-md-3 d-flex align-items-center gap-2 benefit flex-column flex-md-row mt-2 mt-md-0">
-        <img src="img/package.webp" alt="Free Returns" class="benefit-icon">
-        <div>
-          <h5>Free Returns</h5>
-          <p class="m-0">Returns are free Within 9 days</p>
-        </div>
-      </div>
-
-      <!-- 100% Secure -->
-      <div class="col-12 col-md-3 d-flex align-items-center gap-2 benefit flex-column flex-md-row mt-2 mt-md-0">
-        <img src="img/customer.webp" alt="100% Secure" class="benefit-icon">
-        <div>
-          <h5>100% Payment Secure</h5>
-          <p class="m-0">Your Payments are safe with us </p>
-        </div>
-      </div>
-
-      <!-- 24/7 Support -->
-      <div class="col-12 col-md-3 d-flex align-items-center gap-2 benefit flex-column flex-md-row mt-2 mt-md-0">
-        <img src="img/support.webp" alt="24/7 Support" class="benefit-icon">
-        <div>
-          <h5>24/7 Support</h5>
-          <p class="m-0">Contact us 24 hours a day</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 
   <!-- Product Categories -->
   <section class="categories">
@@ -941,146 +625,34 @@ footer p {
       </div>
     </div>
   </section>
-  
 
-<!-- Featured Products Section -->
-<section class="featured-products">
-  <div class="container">
-      <h2 class="text-center">Featured Products</h2> <!-- Centered text -->
-      <div class="row justify-content-center">
-          <!-- Product Card 1 -->
-          <div class="col-md-3">
-              <div class="product-card">
-                  <div class="left-line"></div>
-                  <div class="right-line"></div>
-                  
-                  <div class="image-container">
-                      <img src="img/Wildfox Eau de Parfum _ Nordstrom.jpg" alt="Product Image">
-                  </div>
-
-                  <!-- Replace button with anchor tag -->
-                  <a href="" class="cart-btn">
-                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
-                      <span class="cart-text">Add to Cart</span>
-                  </a>
-
-                  <div class="hover-buttons">
-                      <button class="wishlist-btn">❤️</button>
-                  </div>
-
-                  <div class="product-info">
-                      <h5>Apple Watch SE (2nd Gen)</h5>
-                      <p>
-                          <span class="price-container">
-                              <span class="canceled-price">$243.79</span>  
-                              <strong>$233.79</strong>
-                          </span>
-                      </p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Product Card 2 -->
-          <div class="col-md-3">
-              <div class="product-card">
-                  <div class="left-line"></div>
-                  <div class="right-line"></div>
-                  
-                  <div class="image-container">
-                      <img src="img/The Top 20 Sexy Men's Colognes (How To Smell Incredible In 2025).jpg" alt="Product Image">
-                  </div>
-
-                  <!-- Replace button with anchor tag -->
-                  <a href="" class="cart-btn">
-                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
-                      <span class="cart-text">Add to Cart</span>
-                  </a>
-
-                  <div class="hover-buttons">
-                      <button class="wishlist-btn">❤️</button>
-                  </div>
-
-                  <div class="product-info">
-                      <h5>Eau de Parfum</h5>
-                      <p>
-                          <span class="price-container">
-                              <span class="canceled-price">$99.99</span>  
-                              <strong>$89.99</strong>
-                          </span>
-                      </p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Product Card 3 -->
-          <div class="col-md-3">
-              <div class="product-card">
-                  <div class="left-line"></div>
-                  <div class="right-line"></div>
-                  
-                  <div class="image-container">
-                      <img src="img/12 Expensive Perfumes That Are Totally Worth the Splurge.jpg" alt="Product Image">
-                  </div>
-
-                  <!-- Replace button with anchor tag -->
-                  <a href="" class="cart-btn">
-                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
-                      <span class="cart-text">Add to Cart</span>
-                  </a>
-
-                  <div class="hover-buttons">
-                      <button class="wishlist-btn">❤️</button>
-                  </div>
-
-                  <div class="product-info">
-                      <h5>Floral Essence</h5>
-                      <p>
-                          <span class="price-container">
-                              <span class="canceled-price">$109.99</span>  
-                              <strong>$99.99</strong>
-                          </span>
-                      </p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Product Card 4 -->
-          <div class="col-md-3">
-              <div class="product-card">
-                  <div class="left-line"></div>
-                  <div class="right-line"></div>
-                  
-                  <div class="image-container">
-                      <img src="img/⚜️DOLCE & GABBANA (THE ONE)-- The One by Dolce….jpg" alt="Product Image">
-                  </div>
-
-                  <!-- Replace button with anchor tag -->
-                  <a href="" class="cart-btn">
-                      <img class="cart-icon" src="img/bba.png" alt="Cart Icon">
-                      <span class="cart-text">Add to Cart</span>
-                  </a>
-
-                  <div class="hover-buttons">
-                      <button class="wishlist-btn">❤️</button>
-                  </div>
-
-                  <div class="product-info">
-                      <h5>Woody Musk</h5>
-                      <p>
-                          <span class="price-container">
-                              <span class="canceled-price">$119.99</span>  
-                              <strong>$109.99</strong>
-                          </span>
-                      </p>
-                  </div>
-              </div>
-          </div>
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="img/The Top 20 Sexy Men's Colognes (How To Smell Incredible In 2025).jpg" alt="Perfume 1">
+          <h3>Eau de Parfum</h3>
+          <p>₦99.99</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="img/Wildfox Eau de Parfum _ Nordstrom.jpg" alt="Perfume 2">
+          <h3>Floral Essence</h3>
+          <p>₦89.99</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="img/12 Expensive Perfumes That Are Totally Worth the Splurge.jpg" alt="Perfume 3">
+          <h3>Woody Musk</h3>
+          <p>₦109.99</p>
+          <button class="btn">Add to Cart</button>
+        </div>
       </div>
-  </div>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<br>
-<br>
+    </div>
+  </section>
+
   <!-- New Arrivals Section -->
   <section class="new-arrivals">
     <div class="container">
@@ -1114,16 +686,19 @@ footer p {
       <h2>What Our Customers Say</h2>
       <div class="testimonial-grid">
         <div class="testimonial-card">
-          <p>"The best perfumes I've ever bought! Highly recommended."</p>
-          <h4>- Jane Doe</h4>
+          <img src="img/The Top 20 Sexy Men's Colognes (How To Smell Incredible In 2025).jpg" alt="Customer 1" class="testimonial-img">
+          <p>"Absolutely love these perfumes! Long-lasting and luxurious."</p>
+          <h4>- Sarah L.</h4>
         </div>
         <div class="testimonial-card">
-          <p>"Amazing fragrances and excellent customer service."</p>
-          <h4>- John Smith</h4>
+          <img src="img/VALENTINO BORN IN ROMA CORAL FANTASY UOMO - [AVIS PARFUM].jpg" alt="Customer 2" class="testimonial-img">
+          <p>"Fast delivery and amazing scents. Will buy again!"</p>
+          <h4>- James D.</h4>
         </div>
         <div class="testimonial-card">
-          <p>"I always come back for more. Love the variety!"</p>
-          <h4>- Emily Johnson</h4>
+          <img src="img/⚜️DOLCE & GABBANA (THE ONE)-- The One by Dolce….jpg" alt="Customer 3" class="testimonial-img">
+          <p>"A wonderful selection of fragrances. Perfect for gifts!"</p>
+          <h4>- Emily R.</h4>
         </div>
       </div>
     </div>
